@@ -1,0 +1,50 @@
+{
+  "config": {
+    "flow_title": "KK HMI {name}",
+    "step": {
+      "user": {
+        "title": "KK HMI",
+        "description": "Address of the HMI on your network (the local channel, default port 443). Next you will need a one-time code from the KK app.",
+        "data": {
+          "host": "Host",
+          "port": "Port"
+        }
+      },
+      "enroll": {
+        "title": "Enter the code from the app",
+        "description": "In the KK app open the HMI, tap \"Add local client\" (role viewer, label home-assistant) and type the code it shows for {host} here. The code is valid for two minutes and works once.",
+        "data": {
+          "code": "Enrolment code (XXXX-XXXX)"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reauthenticate the HMI",
+        "description": "The HMI at {host} no longer accepts this Home Assistant (access was revoked, or the HMI was reset). In the KK app tap \"Add local client\" again and type the new code.",
+        "data": {
+          "code": "Enrolment code (XXXX-XXXX)"
+        }
+      }
+    },
+    "error": {
+      "wrong_code": "The code is wrong. Five wrong codes lock the window; if it is gone, open a new one in the app.",
+      "window_closed": "No enrolment window is open on the HMI (expired, already used, or locked after five wrong codes). Tap \"Add local client\" in the app again.",
+      "rejected": "The HMI rejected this client certificate.",
+      "cannot_connect": "Cannot reach the HMI. Check the address and that Home Assistant is on the same network.",
+      "pin_mismatch": "The HMI presented a different key than the one just enrolled. Try again with a new code.",
+      "auth_failed": "The HMI refused this client right after enrolling. Open a new window in the app and try again.",
+      "too_many_clients": "The HMI already has 4 local clients. Close one (another phone or tab), then open a new window and try again.",
+      "wrong_device": "This HMI is a different device than the one configured. Use the code of the original HMI.",
+      "unknown": "Unexpected error, see the Home Assistant log."
+    },
+    "abort": {
+      "already_configured": "This HMI is already configured.",
+      "reauth_successful": "Reauthentication succeeded."
+    }
+  },
+  "issues": {
+    "too_many_clients": {
+      "title": "The HMI has no free local client slot",
+      "description": "The HMI at {host} already has 4 local clients connected, so Home Assistant cannot connect (close code 4290). Disconnect another client (for example a phone app); Home Assistant keeps retrying and this entry clears itself once it gets in."
+    }
+  }
+}

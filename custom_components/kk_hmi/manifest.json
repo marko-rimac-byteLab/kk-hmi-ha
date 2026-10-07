@@ -1,0 +1,18 @@
+{
+  "domain": "kk_hmi",
+  "name": "KK HMI",
+  "codeowners": [
+    "@marko-rimac-byteLab"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/marko-rimac-byteLab/kk-hmi-ha",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/marko-rimac-byteLab/kk-hmi-ha/issues",
+  "requirements": [],
+  "version": "0.2.1",
+  "zeroconf": [
+    "_kkstorage._tcp.local."
+  ]
+}
